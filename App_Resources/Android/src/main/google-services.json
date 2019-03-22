@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "910098256177",
+    "firebase_url": "https://vizit-a26d9.firebaseio.com",
+    "project_id": "vizit-a26d9",
+    "storage_bucket": "vizit-a26d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910098256177:android:c8b275413ac566e6",
+        "android_client_info": {
+          "package_name": "com.thinkj.vizit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910098256177-tk1drdjrnr320hce2omqa3q9c73j3lfi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIMpd6-3Q3fVAiVKxIqNsE3AgdhBx73vE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

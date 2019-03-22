@@ -2,12 +2,15 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { User } from '~/app/shared/user.model';
 import { Page } from 'tns-core-modules/ui/page/page';
+import { UserService } from '~/app/service/UserService';
+
 
 @Component({
   selector: 'ns-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   moduleId: module.id,
+  providers: [UserService]
 })
 export class LoginComponent implements OnInit {
 
@@ -17,14 +20,19 @@ export class LoginComponent implements OnInit {
   @ViewChild("password") password: ElementRef;
   @ViewChild("confirmPassword") confirmPassword: ElementRef;
 
-  constructor(private page: Page,private routerExtensions: RouterExtensions) {
+  //private fingerprintAuth: FingerprintAuth;
+
+  constructor(private page: Page, private routerExtensions: RouterExtensions, private userService: UserService) {
     this.page.actionBarHidden = true;
     this.user = new User();
-    this.user.email = "user@nativescript.org";
-    this.user.password = "password";
+    this.user.email = "jaganb@hotmail.com";
+    this.user.password = "test";
+
+    //this.fingerprintAuth = new FingerprintAuth();
   }
 
   ngOnInit() {
+
   }
 
   // login() {
@@ -59,12 +67,16 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.processing = false;
-    this.routerExtensions.navigate(["/home"], { clearHistory: true });
+    this.userService.login(this.user).then((res) => {
+      this.routerExtensions.navigate(["/home"], { clearHistory: true });
+    }).catch((err) => {
+      this.processing = false;
+      this.alert(err);
+    });
   }
 
   register() {
-    if (this.user.password != this.user.confirmPassword) {
+    if (this.user.password != this.user.password) {
       this.alert("Your passwords do not match.");
       return;
     }
@@ -104,7 +116,7 @@ export class LoginComponent implements OnInit {
 
   alert(message: string) {
     return alert({
-      title: "APP NAME",
+      title: "Alert",
       okButtonText: "OK",
       message: message
     });

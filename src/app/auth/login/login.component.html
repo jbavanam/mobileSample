@@ -1,7 +1,7 @@
 <FlexboxLayout class="page">
     <StackLayout class="form">
-        
-        <Label class="header" text="APP NAME"></Label>
+        <Image src="~/images/logo.png"></Image>
+        <Label class="header" text="VIZZ"></Label>
 
         <PreviousNextView>
             <GridLayout rows="auto, auto, auto">
@@ -28,7 +28,8 @@
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
 
-                <ActivityIndicator rowSpan="3" [busy]="processing"></ActivityIndicator>
+                <ActivityIndicator rowSpan="3" [busy]="processing"
+                borderRadius="50" color="white"></ActivityIndicator>
             </GridLayout>
         </PreviousNextView>
 
